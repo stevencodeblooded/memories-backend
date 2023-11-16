@@ -77,7 +77,7 @@ const deleteMemory = async (req, res) => {
     try {
         memory = await Memory.findByIdAndDelete(memoryId)
     } catch (error) {
-        return res.json({ message: 'Somthing went wrong, could not find place with that id' }).status(500)
+        return res.json({ message:'Somthing went wrong, could not find place with that id' }).status(500)
     }
 
     if (!memory) {

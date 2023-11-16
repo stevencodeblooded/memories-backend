@@ -5,10 +5,11 @@ const mongoose = require('mongoose')
 const memoriesRoutes = require('./routes/memories-routes') 
 
 const app = express()
-app.use(bodyParser.json())
+app.use(bodyParser.json({ limit:'30mb', extended:true }))
+app.use(bodyParser.urlencoded({ limit:'30mb', extended:true }))
 app.use(cors())
 
-app.use('./uploads', express.static('uploads'))
+app.use('/uploads', express.static('uploads'))
 
 app.use('/api/memories', memoriesRoutes)
 
